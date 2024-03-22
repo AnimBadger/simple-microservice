@@ -1,6 +1,7 @@
 package dev.stephen.school.controller;
 
 import dev.stephen.school.model.SchoolModel;
+import dev.stephen.school.model.response.FullSchoolResponse;
 import dev.stephen.school.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,5 +25,11 @@ public class SchoolController {
     @ResponseStatus(HttpStatus.OK)
     public List<SchoolModel> listSchools(){
         return service.listSchool();
+    }
+
+    @GetMapping("/with-students/{schoolId}")
+    @ResponseStatus(HttpStatus.OK)
+    public FullSchoolResponse schoolStudents(@PathVariable Integer schoolId){
+        return service.findSchoolWithStudent(schoolId);
     }
 }

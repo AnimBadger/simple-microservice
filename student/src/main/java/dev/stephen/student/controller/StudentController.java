@@ -25,4 +25,10 @@ public class StudentController {
     public List<StudentModel> listAllStudents(){
         return service.findAllStudents();
     }
+
+    @GetMapping("school/{schoolId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<StudentModel> listAllStudentsBySchool(@PathVariable Integer schoolId){
+        return service.findAllStudentsBySchoolId(schoolId);
+    }
 }
