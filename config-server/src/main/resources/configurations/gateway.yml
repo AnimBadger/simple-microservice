@@ -29,3 +29,7 @@ spring:
           uri: http://localhost:8070
           predicates:
             - Path=/api/v1/schools/**
+management:
+  tracing:
+    sampling:
+      probability: 1.0
